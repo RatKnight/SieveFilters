@@ -1,0 +1,9 @@
+require ["fileinto", "imap4flags", "vnd.proton.expire"];
+
+# my health insurance and other random stuff. Keep for 1000 days for record keeping.
+if address :matches :domain "from" ["*.aetna.com", "23andme.com", "*.cvs.com", "*.myplanportal.com", "*.aetna.com"]
+{
+    fileinto "Healthcare";
+    expire "day" "1000";
+    stop;
+}
